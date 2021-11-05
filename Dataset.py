@@ -45,8 +45,7 @@ class Dataset:
                 label_pool.append(subdir)
                 print(f"{subdir}: {(i/self.lengths_by_class[subdir])*100:.4}",end="\r")
             print("Class "+subdir+" objects creation has done.")
-
-        print("*"*25)
+        print("Completed!")
         return image_pool,label_pool
 
     def __getitem__(self, item):

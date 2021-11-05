@@ -2,4 +2,4 @@ scikit-learn
 matplotlib
 numpy
 pandas
-opencv-python
+opencv
