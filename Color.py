@@ -1,4 +1,4 @@
-from matplotlib import colors
+import argparse
 from Dataset import Dataset
 import matplotlib.pyplot as plt
 import cv2
@@ -6,6 +6,13 @@ import numpy as np
 import pandas as pd
 
 colors_csv = None
+
+
+ap = argparse.ArgumentParser()
+ap.add_argument("-i","--image",required=True,
+        help="image to get its dominant color")
+
+args = vars(ap.parse_args())
 
 def getColorName(R,G,B):
     global colors_csv
@@ -37,7 +44,7 @@ def main():
     data = Dataset("./test_data/")
     images, labels = data.images, data.labels
     # temporary img
-    img = images[0]
+    img = args["image"]
 
 
     index=["color","color_name","hex","R","G","B"]
