@@ -5,14 +5,15 @@ import cv2
 
 class Dataset:
 
-    def __init__(self, data_dir,BGR = False):
+    def __init__(self, data_dir, BGR = False):
         self.data_dir = data_dir
+        self.BGR = BGR
         self.classes = [os.path.basename(dir) for dir in glob.glob(self.data_dir+"/*")]
         self.length = sum(self.__imageCount().values())
         self.lengths_by_class = self.__imageCount()
         self.shape = tuple((self.length,*self.__shape()))
         self.images, self.labels = self.__create_images_and_labels()
-        self.BGR = BGR
+        
         
         
         
@@ -43,7 +44,7 @@ class Dataset:
                                     glob.glob(self.data_dir + "/" +subdir +"/*.jpeg")):
 
                 if self.BGR == False:
-                    image = cv2.imread(path,cv2.BGR2RGB)
+                    image = cv2.imread(path,cv2.COLOR_BGR2RGB)
                 else:
                     image = cv2.imread(path)
                 image_pool.append(image)
