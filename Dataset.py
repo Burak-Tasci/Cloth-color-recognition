@@ -5,18 +5,14 @@ import cv2
 
 class Dataset:
 
-    def __init__(self, data_dir, BGR = False):
+    def __init__(self, data_dir):
         self.data_dir = data_dir
-        self.BGR = BGR
         self.classes = [os.path.basename(dir) for dir in glob.glob(self.data_dir+"/*")]
         self.length = sum(self.__imageCount().values())
         self.lengths_by_class = self.__imageCount()
         self.shape = tuple((self.length,*self.__shape()))
         self.images, self.labels = self.__create_images_and_labels()
-        
-        
-        
-        
+
     def __imageCount(self):
         """
         Returns sum of .png, .jpg, .jpeg file counts.
@@ -43,19 +39,14 @@ class Dataset:
                                     glob.glob(self.data_dir + "/" +subdir +"/*.jpg") + \
                                     glob.glob(self.data_dir + "/" +subdir +"/*.jpeg")):
 
-                if self.BGR == False:
-                    image = cv2.imread(path,cv2.COLOR_BGR2RGB)
-                else:
-                    image = cv2.imread(path)
+
+                image = cv2.imread(path)
                 image_pool.append(image)
                 label_pool.append(subdir)
                 print(f"{subdir}: {(i/self.lengths_by_class[subdir])*100:.4}",end="\r")
             print("Class "+subdir+" objects creation has done.")
         print("Completed!")
         return image_pool,label_pool
-
-    def __getitem__(self, item):
-         return getattr(self, item)
 
     def __shape(self):
         for subdir in self.classes:
