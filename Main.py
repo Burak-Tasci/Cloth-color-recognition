@@ -1,26 +1,32 @@
 import cv2
 import numpy as np
+from Color import ColorRecogniser
+from Dataset import Dataset
+from random import sample
+
+recogniser = ColorRecogniser(".\\COLORS.csv")
+dataset = Dataset(".\\test_data\\")
+images = dataset.images
+
+for i,img in enumerate(sample(images,5)):
+
+	dominants = recogniser.getColors(img)
+	
+	b1,g1,r1 = dominants[0]
+	b2,g2,r2 = dominants[1]
+
+	color1 = recogniser.getColorName(b1,g1,r1)
+	color2 = recogniser.getColorName(b2,g2,r2)
+	print("-"*25)
+	print(color1)
+	print(color2)
+	print("-"*25)
+	cv2.imshow("img",img)
+	cv2.waitKey(0)
+	cv2.destroyAllWindows()
+
+	if i > 5:
+		break
 
 
-img = cv2.imread(".\data\hoodies\\2NA22S0A9-K12@1.1.jpg")
 
-image = cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
-twoDimage = image.reshape((-1,3))
-twoDimage = np.float32(twoDimage)
-
-criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 10, 1.0)
-K = 2
-attempts=10
-
-ret,label,center=cv2.kmeans(twoDimage,K,None,criteria,attempts,cv2.KMEANS_PP_CENTERS)
-center = np.uint8(center)
-res = center[label.flatten()]
-result_image = res.reshape((image.shape))
-
-
-
-cv2.imshow("img",img)
-cv2.imshow("image",image)
-cv2.imshow("result_image",result_image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()

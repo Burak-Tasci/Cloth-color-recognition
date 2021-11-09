@@ -30,6 +30,8 @@ class ColorRecogniser:
         _, labels, palette = cv2.kmeans(pixels, n_colors, None, criteria, 10, flags)
 
         return palette
+    def getBackgroundColor(self):
+        pass
 
 
 
