@@ -25,3 +25,4 @@ https://www.kaggle.com/dqmonn/zalando-store-crawl/download
 ## An Example
 
 ![Query Image](https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/img_screenshot_17.11.2021.png)
+<img src="https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/img_screenshot_17.11.2021.png" width="48">
