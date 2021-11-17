@@ -15,7 +15,7 @@
 https://www.kaggle.com/dqmonn/zalando-store-crawl/download
 
 ## How To Run
-1. Download COLORS.csv file for determining colors. Also you can use another colors csv file which has columns
+1. Download COLORS.csv file for determining colors.
 - https://drive.google.com/file/d/1E4EZ-p4chwM4ASxASLgrJo8tLeiOa64U/view?usp=sharing
 2. Install requirements with code below:
 - ``` pip install -r requirements.txt ```
