@@ -23,5 +23,10 @@ https://www.kaggle.com/dqmonn/zalando-store-crawl/download
 - ```python main.py -i/--image [IMAGE_PATH] -c/--colors [COLOR_CSV]```
 
 ## An Example
+Query Image:
 
 <img src="https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/img_screenshot_17.11.2021.png" width="240">
+
+Result:
+
+<img src="https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/Figure_1.png" width="120">
