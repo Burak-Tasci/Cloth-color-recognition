@@ -29,4 +29,4 @@ Query Image:
 
 Result:
 
-<img src="https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/Figure_1.png" width="120">
+<img src="https://github.com/Burak-Tasci/Clothe-color-segmentation/blob/main/images/Figure_1.png" width="240">
