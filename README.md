@@ -1,4 +1,4 @@
-# Clothe Color Recognition
+# Cloth Color Recognition
 
 ## Dataset Folder Structure
 - Folder
